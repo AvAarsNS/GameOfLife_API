@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project xmlns:con="http://eviware.com/soapui/config" activeEnvironment="local mock" compositeProjectFormat="1.3" created="3.47.0" encryptionMode="Not encrypted" id="955d5917-3c0a-443e-bfa1-9f51a3c6e211" name="GameOfLife" projectVersion="" resourceRoot="" updated="3.47.0" abortOnError="false" runType="SEQUENTIAL">
+  <con:settings>
+    <con:setting id="955d5917-3c0a-443e-bfa1-9f51a3c6e211fileName">GameOfLife-readyapi-project</con:setting>
+  </con:settings>
+  <con:requirements/>
+  <con:properties/>
+  <con:wssContainer/>
+  <con:databaseConnectionContainer/>
+  <con:jmsConnectionContainer/>
+  <con:oAuth2ProfileContainer/>
+  <con:oAuth1ProfileContainer/>
+  <con:eventHandlers name="RequestFilter.filterRequest" type="RequestFilter.filterRequest">
+    <con:script>// Sample event script to add custom HTTP header to all outgoing REST, SOAP and HTTP(S) calls
+// This code is often used for adding custom authentication to ReadyAPI functional tests
+
+// If hardcoding the token, uncomment and change line 5
+// token = '4567'
+
+// If your token is parameterized in Project level custom property, uncomment line 8
+// token = request.parent.testCase.testSuite.project.getProperty('auth_token').getValue()
+
+// To modify all outgoing calls, remove comments from lines 11 to 16
+// headers = request.requestHeaders
+// if (headers.containsKey('auth_token2') == false) {
+//   headers.put('auth_token2', token)
+//   request.requestHeaders = headers
+// }</con:script>
+  </con:eventHandlers>
+  <con:eventHandlers name="TestRunListener.afterStep" type="TestRunListener.afterStep">
+    <con:script>// Save all test step results into files
+// Change the directory path in line 5 to a location where you want to store details
+// then uncomment lines 5 to 10
+
+// filePath = 'C:\\tempOutputDirectory\\'
+// fos = new java.io.FileOutputStream(filePath + testStepResult.testStep.label + '.txt', true)
+// pw = new java.io.PrintWriter(fos)
+// testStepResult.writeTo(pw)
+// pw.close()
+// fos.close()</con:script>
+  </con:eventHandlers>
+  <con:environment id="6cf2b45b-7b22-4a75-b882-5ff6f7f7ff08" index="0" name="local">
+    <con:service name="Game of Life API" type="REST">
+      <con:endpoint areGlobalProxySettingsIgnored="false" authProfile="No Authorization" proxyHost="" proxyPassword="" proxyPort="" proxyUsername="">http://localhost:3000</con:endpoint>
+    </con:service>
+    <con:databaseConnectionContainer/>
+    <con:jmsConnectionContainer/>
+  </con:environment>
+  <con:environment id="48b08778-348b-4977-8317-cd59ae997860" name="local mock" index="1">
+    <con:service type="REST" name="Game of Life API">
+      <con:endpoint authProfile="No Authorization" proxyHost="" proxyPort="" proxyUsername="" proxyPassword="">http://localhost:8088/</con:endpoint>
+    </con:service>
+    <con:databaseConnectionContainer/>
+    <con:jmsConnectionContainer/>
+  </con:environment>
+  <con:authRepository/>
+  <con:environmentSpec>
+    <con:entry environmentId="6cf2b45b-7b22-4a75-b882-5ff6f7f7ff08">
+      <con:authProfile>No Authorization</con:authProfile>
+    </con:entry>
+    <con:entry environmentId="48b08778-348b-4977-8317-cd59ae997860">
+      <con:authProfile>No Authorization</con:authProfile>
+    </con:entry>
+  </con:environmentSpec>
+  <con:tags/>
+</con:soapui-project>

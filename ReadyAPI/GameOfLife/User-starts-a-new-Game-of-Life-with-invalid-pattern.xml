@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config" discardOkResults="false" failOnError="false" failTestCaseOnErrors="true" id="b51769d9-0a7c-4bfb-8470-2377f805ce4d" keepSession="false" name="User starts a new Game of Life with invalid pattern" searchProperties="true" timeout="0">
+  <con:settings id="9184e0d5-485e-4701-aff2-c41b96b79df4">
+    <con:setting id="b51769d9-0a7c-4bfb-8470-2377f805ce4dfileName">User-starts-a-new-Game-of-Life-with-invalid-pattern</con:setting>
+  </con:settings>
+  <con:testStep id="03b9b063-8657-412c-9245-3b60432799b6" name="GIVEN a user wants to play the game of life" type="assertionteststep">
+    <con:settings/>
+    <con:config xsi:type="con:AssertionTestStep"/>
+  </con:testStep>
+  <con:testStep id="1ad6572d-1099-49e7-a5cf-035409101d27" name="WHEN the user requests a 20x20 universe with the company logo of Valcon" type="restrequest">
+    <con:settings/>
+    <con:config xsi:type="con:RestRequestStep" methodName="POST" resourcePath="/start" service="Game of Life API">
+      <con:restRequest id="810da0ad-9862-4753-8d65-578cb1bf108f" mediaType="application/json" name="WHEN the user requests a 20x20 universe with the company logo of Valcon" postQueryString="false">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:endpoint>https://virtserver.swaggerhub.com/mcoen93ns/Geheim/1.0.0</con:endpoint>
+        <con:request>{\r
+  "width" : 20,\r
+  "height" : 20,\r
+  "pattern" : "Valcon"\r
+}</con:request>
+        <con:originalUri>http://localhost/start</con:originalUri>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters/>
+        <con:environmentSpec>
+          <con:entry environmentId="6cf2b45b-7b22-4a75-b882-5ff6f7f7ff08">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+          <con:entry environmentId="48b08778-348b-4977-8317-cd59ae997860">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:testStep id="2b27a9bd-5770-4781-a9cd-f3600dd22e0d" name="THEN the API returns 400 Bad Request" type="assertionteststep">
+    <con:settings/>
+    <con:config xsi:type="con:AssertionTestStep">
+      <con:entry>
+        <con:id>5a3f874b-b27c-47b8-9e8f-099cd15ff1bb</con:id>
+        <con:isGroup>false</con:isGroup>
+        <con:sourceId>1ad6572d-1099-49e7-a5cf-035409101d27</con:sourceId>
+        <con:propertyName>Response</con:propertyName>
+        <con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes" id="de02b5e9-afba-41cc-8b5b-845c2306bb9a">
+          <con:settings/>
+          <con:configuration>
+            <codes>400</codes>
+          </con:configuration>
+        </con:assertion>
+      </con:entry>
+    </con:config>
+  </con:testStep>
+  <con:properties/>
+  <con:reportParameters/>
+  <con:environmentSpec>
+    <con:entry environmentId="6cf2b45b-7b22-4a75-b882-5ff6f7f7ff08">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+    <con:entry environmentId="48b08778-348b-4977-8317-cd59ae997860">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+  </con:environmentSpec>
+</con:testCase>

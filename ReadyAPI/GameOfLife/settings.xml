@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testSuite xmlns:con="http://eviware.com/soapui/config" id="9f7006a3-76e4-4499-ae1a-2e1efd09fc62" name="GameOfLife">
+  <con:settings id="3c080797-8f6a-4e54-939b-24a8bf703e93">
+    <con:setting id="9f7006a3-76e4-4499-ae1a-2e1efd09fc62fileName">GameOfLife</con:setting>
+  </con:settings>
+  <con:runType>SEQUENTIAL</con:runType>
+  <con:properties/>
+  <con:reportParameters/>
+  <con:environmentSpec>
+    <con:entry environmentId="6cf2b45b-7b22-4a75-b882-5ff6f7f7ff08">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+    <con:entry environmentId="48b08778-348b-4977-8317-cd59ae997860">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+  </con:environmentSpec>
+</con:testSuite>

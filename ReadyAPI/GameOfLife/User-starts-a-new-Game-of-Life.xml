@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase xmlns:con="http://eviware.com/soapui/config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" discardOkResults="false" failOnError="false" failTestCaseOnErrors="true" id="509f3b3a-1829-4143-933d-ebecd6cd02a4" keepSession="false" name="User starts a new Game of Life" searchProperties="true" timeout="0">
+  <con:settings id="9184e0d5-485e-4701-aff2-c41b96b79df4">
+    <con:setting id="509f3b3a-1829-4143-933d-ebecd6cd02a4fileName">User-starts-a-new-Game-of-Life</con:setting>
+  </con:settings>
+  <con:testStep id="aed2265d-47a2-4616-9638-e3fcf78709fa" name="GIVEN a user wants to play the game of life" type="assertionteststep">
+    <con:settings/>
+    <con:config xsi:type="con:AssertionTestStep"/>
+  </con:testStep>
+  <con:testStep id="94b07fdb-eb6b-41b2-ba7f-266f9bbb98b5" name="WHEN the user requests a 20x20 universe with a glider" type="restrequest">
+    <con:settings/>
+    <con:config xsi:type="con:RestRequestStep" methodName="POST" resourcePath="/start" service="Game of Life API">
+      <con:restRequest id="810da0ad-9862-4753-8d65-578cb1bf108f" mediaType="application/json" name="WHEN the user requests a 20x20 universe with a glider" postQueryString="false">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:endpoint>https://virtserver.swaggerhub.com/mcoen93ns/Geheim/1.0.0</con:endpoint>
+        <con:request>{\r
+  "width" : 20,\r
+  "height" : 20,\r
+  "pattern" : "glider"\r
+}</con:request>
+        <con:originalUri>http://localhost/start</con:originalUri>
+        <con:assertion id="b7abc48c-4ca2-44a8-91c5-f3b5f23049ff" name="Valid HTTP Status Codes" type="Valid HTTP Status Codes">
+          <con:settings/>
+          <con:configuration>
+            <codes>200</codes>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters/>
+        <con:environmentSpec>
+          <con:entry environmentId="6cf2b45b-7b22-4a75-b882-5ff6f7f7ff08">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+          <con:entry environmentId="48b08778-348b-4977-8317-cd59ae997860">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:testStep id="811799dd-d6e3-4fec-8f6e-a4b232da79d0" name="THEN the API returns a 20x20 universe with a glider" type="assertionteststep">
+    <con:settings/>
+    <con:config xsi:type="con:AssertionTestStep">
+      <con:entry>
+        <con:id>2c9d7040-5fd1-49c2-bb10-6384341e6d8d</con:id>
+        <con:isGroup>false</con:isGroup>
+        <con:sourceId>94b07fdb-eb6b-41b2-ba7f-266f9bbb98b5</con:sourceId>
+        <con:propertyName>Response</con:propertyName>
+        <con:assertion id="633bff39-4478-4354-9cda-00d22152cc80" name="JSONPath Match" type="JsonPath Match">
+          <con:configuration>
+            <path>$['universe']</path>
+            <content>[[0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]]</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+      </con:entry>
+    </con:config>
+  </con:testStep>
+  <con:testStep id="a9d20f57-9b8a-4c8e-96c3-abbdf1afe570" name="AND the tickNumber is 0" type="assertionteststep">
+    <con:settings/>
+    <con:config xsi:type="con:AssertionTestStep">
+      <con:entry>
+        <con:id>d7a07a57-44a4-41d1-8b3c-6ea5fec635c2</con:id>
+        <con:isGroup>false</con:isGroup>
+        <con:sourceId>94b07fdb-eb6b-41b2-ba7f-266f9bbb98b5</con:sourceId>
+        <con:propertyName>Response</con:propertyName>
+        <con:assertion id="0e5f3821-ac78-42d4-86a7-546f494820fa" name="JSONPath Match" type="JsonPath Match">
+          <con:configuration>
+            <path>$['tickNumber']</path>
+            <content>0</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+      </con:entry>
+    </con:config>
+  </con:testStep>
+  <con:properties/>
+  <con:reportParameters/>
+  <con:environmentSpec>
+    <con:entry environmentId="6cf2b45b-7b22-4a75-b882-5ff6f7f7ff08">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+    <con:entry environmentId="48b08778-348b-4977-8317-cd59ae997860">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+  </con:environmentSpec>
+</con:testCase>

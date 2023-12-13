@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:interface xmlns:con="http://eviware.com/soapui/config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="con:RestService" definitionUrl="file:/C:/Users/mathijs.coenen_nsp/GameOfLifeLegacy/api/openapi.yml" id="7c1f2c1b-f4b4-4dcd-b693-901b6b0067d7" name="Game of Life API" type="rest_ex" wadlVersion="https://swagger.io/openapiv3/specification">
+  <con:description id="48b4d979-b923-4409-b14f-a30485392e68">An API to simulate the Game of Life.</con:description>
+  <con:settings>
+    <con:setting id="7c1f2c1b-f4b4-4dcd-b693-901b6b0067d7fileName">Game-of-Life-API</con:setting>
+  </con:settings>
+  <con:definitionCache rootPart="file:/C:/Users/mathijs.coenen_nsp/GameOfLifeLegacy/api/openapi.yml" type="TEXT">
+    <con:part>
+      <con:url>file:/C:/Users/mathijs.coenen_nsp/GameOfLifeLegacy/api/openapi.yml</con:url>
+      <con:content>{"openapi":"3.0.0","info":{"title":"Game of Life API","description":"An API to simulate the Game of Life.","version":"1.0.0"},"servers":[{"url":"https://virtserver.swaggerhub.com/mcoen93ns/Geheim/1.0.0","description":"SwaggerHub API Auto Mocking"}],"paths":{"/start":{"description":"","post":{"description":"Start a new game","requestBody":{"content":{"application/json":{"example":"{\r\n  \"width\" : 0,\r\n  \"height\" : 0,\r\n  \"pattern\" : \"Glider\"\r\n}"}}},"responses":{"200":{"description":"Game started successfully","content":{"application/json":{"example":""}}}}}},"/tick":{"description":"","post":{"description":"Generate the next tick for the universe","requestBody":{"content":{"application/json":{"example":"{\r\n  \"universe\" : [ [ 0 ] ]\r\n}"}}},"responses":{"200":{"description":"Next tick generated successfully","content":{"application/json":{"example":""}}}}}}},"components":{"schemas":{"GameConfiguration":{"type":"object","properties":{"width":{"maximum":20,"type":"integer","description":"Width of the game universe."},"height":{"maximum":20,"type":"integer","description":"Height of the game universe."},"pattern":{"type":"string","description":"Selected pattern or RANDOM for a random pattern.","enum":["Glider","Spaceship","RANDOM"]}}},"UniverseState":{"required":["universe"],"type":"object","properties":{"universe":{"type":"array","items":{"type":"array","items":{"type":"integer","description":"State of a cell, 0 for dead and 1 for alive.","enum":[0,1]}}}}},"UniverseResponse":{"type":"object","properties":{"tickNumber":{"type":"integer","description":"The number of ticks that have occurred."},"universe":{"type":"array","items":{"required":["tickNumber","universe"],"type":"array","items":{"type":"integer","description":"State of a cell, 0 for dead and 1 for alive.","enum":[0,1]}}}}}}}}</con:content>
+      <con:type>https://swagger.io/openapiv3/specification</con:type>
+    </con:part>
+  </con:definitionCache>
+  <con:endpoints>
+    <con:endpoint>http://localhost:8088/</con:endpoint>
+    <con:endpoint>https://virtserver.swaggerhub.com/mcoen93ns/Geheim/1.0.0</con:endpoint>
+  </con:endpoints>
+  <con:environmentSpec>
+    <con:entry environmentId="6cf2b45b-7b22-4a75-b882-5ff6f7f7ff08">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+    <con:entry environmentId="48b08778-348b-4977-8317-cd59ae997860">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+  </con:environmentSpec>
+</con:interface>

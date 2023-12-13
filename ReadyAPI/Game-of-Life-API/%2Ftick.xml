@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:resource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config" id="56623e02-e9d4-433d-9b1d-d6dfb02af98b" name="/tick" path="/tick">
+  <con:settings id="5f417c6c-7322-4f20-8f8a-39a936ada62b">
+    <con:setting id="56623e02-e9d4-433d-9b1d-d6dfb02af98bfileName">%2Ftick</con:setting>
+  </con:settings>
+  <con:parameters/>
+  <con:method id="37d8c3b5-d8c2-4a69-ba6d-7a69cce63920" method="POST" name="POST">
+    <con:description>Generate the next tick for the universe</con:description>
+    <con:settings/>
+    <con:parameters/>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>200</con:status>
+      <con:params/>
+      <con:description>Next tick generated successfully</con:description>
+      <con:sampleContent>{
+  "tickNumber" : 0,
+  "universe" : [ [ 0 ] ]
+}</con:sampleContent>
+    </con:representation>
+    <con:representation type="REQUEST">
+      <con:mediaType>application/json</con:mediaType>
+      <con:params/>
+      <con:sampleContent>{
+  "universe" : [ [ 0 ] ]
+}</con:sampleContent>
+    </con:representation>
+    <con:request id="ee875535-db2d-4309-a74d-407eb94f9532" mediaType="application/json" name="Request 1" postQueryString="false">
+      <con:settings>
+        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+      </con:settings>
+      <con:endpoint>https://virtserver.swaggerhub.com/mcoen93ns/Geheim/1.0.0</con:endpoint>
+      <con:request>{\r
+  "tickNumber" : 0,\r
+  "universe" : [ [ 0 ] ]\r
+}</con:request>
+      <con:credentials>
+        <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
+      <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+      <con:parameters/>
+      <con:environmentSpec>
+        <con:entry environmentId="6cf2b45b-7b22-4a75-b882-5ff6f7f7ff08">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+        <con:entry environmentId="48b08778-348b-4977-8317-cd59ae997860">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+      </con:environmentSpec>
+    </con:request>
+    <con:environmentSpec>
+      <con:entry environmentId="6cf2b45b-7b22-4a75-b882-5ff6f7f7ff08">
+        <con:authProfile>Inherit From Parent</con:authProfile>
+      </con:entry>
+      <con:entry environmentId="48b08778-348b-4977-8317-cd59ae997860">
+        <con:authProfile>Inherit From Parent</con:authProfile>
+      </con:entry>
+    </con:environmentSpec>
+  </con:method>
+  <con:environmentSpec>
+    <con:entry environmentId="6cf2b45b-7b22-4a75-b882-5ff6f7f7ff08">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+    <con:entry environmentId="48b08778-348b-4977-8317-cd59ae997860">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+  </con:environmentSpec>
+</con:resource>
